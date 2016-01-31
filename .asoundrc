@@ -1,2 +1,15 @@
-defaults.ctl.card 1;
-defauls.pcm.card 1;
+defaults.ctl.card 0;
+defaults.pcm.card 0;
+
+pcm.pulse {
+    type pulse
+}
+ctl.pulse {
+    type pulse
+}
+pcm.!default {
+    type pulse
+}
+ctl.!default {
+    type pulse
+}
