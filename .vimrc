@@ -33,7 +33,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 
 Plugin 'powerline/powerline'
-
+Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,9 +49,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+filetype plugin indent on
+
 set number
 set tabstop=4
-set nowrap
+set shiftwidth=4
+set expandtab
+"set nowrap
+set wrap linebreak nolist
 set hls
 set is
 syntax on           
