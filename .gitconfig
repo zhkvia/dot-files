@@ -1,0 +1,11 @@
+[user]
+	username = luc1ph3r
+    email = electrocartridge@gmail.com
+[diff]
+    guitool = opendiff
+    tool = vimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
