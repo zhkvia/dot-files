@@ -9,6 +9,8 @@ ZSH_THEME="agnoster"
 
 #mine
 setopt nohup
+setopt auto_cd     # cd to folder without typing 'cd'
+setopt cdable_vars # like cd $var but without explicit '$'
 #mine_end
 
 #
