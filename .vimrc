@@ -32,7 +32,7 @@ Plugin 'honza/vim-snippets'
 " Compile and see errors
 Plugin 'scrooloose/syntastic'
 
-Plugin 'powerline/powerline'
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
