@@ -97,3 +97,9 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
+
+
+alias mv="mv -iv"
+alias cp="cp -iv"
+alias ta="tmux attach -t"
+alias tl="tmux list-sessions"
