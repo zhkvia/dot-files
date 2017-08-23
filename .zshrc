@@ -103,3 +103,18 @@ alias mv="mv -iv"
 alias cp="cp -iv"
 alias ta="tmux attach -t"
 alias tl="tmux list-sessions"
+
+# VIM
+# to be able open files in already existing vim session
+alias vim="vim --servername VIM"
+
+remote_vim() {
+  # $2 - file path
+  [[ $1 != "vsp" ]] && [[ $1 != "sp" ]] && echo 'wrong split command' && return 1;
+  vim --remote-send ":$1 `realpath $2`<CR>";
+}
+
+alias rvim="vim --remote"
+alias rvimsp="remote_vim sp"
+alias rvimvsp="remote_vim vsp"
+
