@@ -20,20 +20,24 @@ Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-"  Color schemes
+"  Color schemes and themes
 Plugin 'crusoexia/vim-monokai'
 
-" Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
 " Compile and see errors
-Plugin 'scrooloose/syntastic'
-
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'bronson/vim-trailing-whitespace'
+" Vim implementation of Sublime Text's plugin PlainTask
+Plugin 'elentok/plaintasks.vim'
+" Bindings for comments
+Plugin 'tpope/vim-commentary'
+" Plugin for iTerm (enables FocusGained, FocusLost, etc)
+Plugin 'sjl/vitality.vim'
+" Home page for vim
+Plugin 'mhinz/vim-startify'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,25 +53,76 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-filetype plugin indent on
-
 set number
-set tabstop=4
-set shiftwidth=4
+" how many spaces will be inserted after pressing tab
+set tabstop=2
+" how many spaces will be inserted by indentation rules after newline
+set shiftwidth=2
 set expandtab
 "set nowrap
 set wrap linebreak nolist
 set hls
 set is
-syntax on           
+syntax on
 colorscheme monokai
 let &colorcolumn=join(range(81,999),",")
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-let g:clang_user_options = '-std=c++11'
+let g:clang_user_options = '-std=c++14 -fopenmp'
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Set rulers for 80 and 120 characters
+let &colorcolumn="80,".join(range(120, 999),",")
+
+" Open split panes only right and bottom
+set splitbelow
+set splitright
+
+" Move cursor to last position when reopening file:"
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set backspace=indent,eol,start
+set mouse=a
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
+
+set relativenumber
+
+" Switch between relative and absolute line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+" Also, show absoulute line numbers when vim loses focus
+autocmd FocusLost * set norelativenumber
+autocmd FocusGained * set relativenumber
+
+" Let's use absolute ine numbers when we're in insert mode
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+
+" Disable vertical arrow keys in Visual mode
+vmap <up> <nop>
+vmap <down> <nop>
+
