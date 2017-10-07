@@ -115,6 +115,7 @@ remote_vim() {
 }
 
 alias rvim="vim --remote"
+alias rvimtab="vim --remote-tab"
 alias rvimsp="remote_vim sp"
 alias rvimvsp="remote_vim vsp"
 
