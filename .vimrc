@@ -126,3 +126,13 @@ nnoremap <C-n> :call NumberToggle()<cr>
 vmap <up> <nop>
 vmap <down> <nop>
 
+" yank to clipboard
+" If you are using macOS, see: http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
