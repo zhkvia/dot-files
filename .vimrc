@@ -136,3 +136,10 @@ if has("clipboard")
   endif
 endif
 
+" Fix weird bug when a mouse doesn't work after a 220th column
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
