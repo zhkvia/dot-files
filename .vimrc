@@ -37,6 +37,15 @@ Plugin 'sjl/vitality.vim'
 " Home page for vim
 Plugin 'mhinz/vim-startify'
 
+" Asynchronous Lint checker
+Plugin 'w0rp/ale'
+" Python IDE
+Plugin 'davidhalter/jedi-vim'
+" Python virtual env
+Plugin 'jmcantrell/vim-virtualenv'
+
+" LaTeX plugin
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -136,7 +145,7 @@ if has("clipboard")
   endif
 endif
 
-" Fix weird bug when a mouse doesn't work after a 220th column
+" Fix a weird bug when a mouse doesn't work after a 220th column
 if has("mouse_sgr")
     set ttymouse=sgr
 else
