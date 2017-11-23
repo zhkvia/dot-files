@@ -152,3 +152,5 @@ else
     set ttymouse=xterm2
 end
 
+" Always set the vim's cwd to a current file's directory
+autocmd BufEnter * lcd %:p:h
