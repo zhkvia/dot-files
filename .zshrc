@@ -111,7 +111,9 @@ alias vim="vim --servername VIM"
 remote_vim() {
   # $2 - file path
   [[ $1 != "vsp" ]] && [[ $1 != "sp" ]] && echo 'wrong split command' && return 1;
-  vim --remote-send ":$1 `realpath $2`<CR>";
+  file_path=`realpath $2`
+  file_path=${file_path/\ /\\ }
+  vim --remote-send ":$1 $file_path<CR>";
 }
 
 alias rvim="vim --remote"
