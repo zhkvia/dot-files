@@ -25,7 +25,24 @@ Plugin 'crusoexia/vim-monokai'
 
 " Compile and see errors
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"
+"" C++ zone --
+" switch between .h and .cpp files
+Plugin 'derekwyatt/vim-fswitch'
+
+" " Autocompletion via clang
 Plugin 'Valloric/YouCompleteMe'
+" YCM fix
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Sometimes YCM is built under a different python version than a system one.
+" Fix it:
+" let g:ycm_server_python_interpreter = '/usr/bin/python'
+"let g:ycm_python_binary_path = '/usr/local/bin/python3'
+
+" " Better syntax highlightning for C++11/14/17
+Plugin 'octol/vim-cpp-enhanced-highlight'
+let c_no_curly_error=1
+"" -- C++ zone
 
 Plugin 'bronson/vim-trailing-whitespace'
 " Vim implementation of Sublime Text's plugin PlainTask
@@ -39,8 +56,7 @@ Plugin 'mhinz/vim-startify'
 
 " Asynchronous Lint checker
 Plugin 'w0rp/ale'
-" Python IDE
-Plugin 'davidhalter/jedi-vim'
+
 " Python virtual env
 Plugin 'jmcantrell/vim-virtualenv'
 
