@@ -60,8 +60,28 @@ Plugin 'w0rp/ale'
 " Python virtual env
 Plugin 'jmcantrell/vim-virtualenv'
 
+" For viewing and editing column separated data
+Plugin 'chrisbra/csv.vim'
+
+" Sidebar displaying a current file's structure
+Plugin 'majutsushi/tagbar'
+nmap <C-t> :TagbarToggle<CR>
+let g:tagbar_width = 40
+
+" NEDRtree for displayin folders tree on the left
+Plugin 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 30
+
+" Fuzzy search on files/buffers/tags/etc.
+Plugin 'kien/ctrlp.vim'
+
 " LaTeX plugin
 Plugin 'lervag/vimtex'
+
+" LaTeX live preview
+Plugin 'xuhdev/vim-latex-live-preview'
+let g:livepreview_previewer = 'open -a Preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
