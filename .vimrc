@@ -39,6 +39,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 " let g:ycm_server_python_interpreter = '/usr/bin/python'
 "let g:ycm_python_binary_path = '/usr/local/bin/python3'
 
+" Shortcuts (all comands are here: https://valloric.github.io/YouCompleteMe/#ycmcompleter-subcommands)
+" Define \ + d as GoToDefinition
+nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
+
 " " Better syntax highlightning for C++11/14/17
 Plugin 'octol/vim-cpp-enhanced-highlight'
 let c_no_curly_error=1
