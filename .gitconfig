@@ -1,6 +1,9 @@
 [user]
     username = luc1ph3r
     email = electrocartridge@gmail.com
+[includeIf "gitdir:~/src/"]
+    path = ~/src/.gitconfig
+
 [diff]
     guitool = opendiff
     tool = vimdiff
