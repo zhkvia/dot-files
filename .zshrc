@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=~/.oh-my-zsh/
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -104,6 +104,8 @@ alias cp="cp -iv"
 alias ta="tmux attach -t"
 alias tl="tmux list-sessions"
 
+export EDITOR=vim
+
 # VIM
 # to be able open files in already existing vim session
 alias vim="vim --servername VIM"
@@ -121,4 +123,25 @@ alias rvimtab="vim --remote-tab"
 alias rvimsp="remote_vim sp"
 alias rvimvsp="remote_vim vsp"
 
-export EDITOR=vim
+alias dm="docker-machine"
+alias dc="docker-compose"
+
+# Etc--
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+alias clang++11="clang++ -std=c++11"
+alias clang++14="clang++ -std=c++14"
+alias clang++17="clang++ -std=c++17"
+
+alias http_codes="node -e 'console.log(require(\"http\").STATUS_CODES)'"
+alias ccat=pygmentize
+alias btg="source ~/developer/gits/backtogit/backtogit.sh"
+alias currbr="git br | grep '*' | tr -d '* '"
+# --Etc
+
+# VLC fonts
+export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
+
+alias today="echo \$(date +'%Y-%m-%d')"
+alias mkdirdate="mkdir \$(today)"

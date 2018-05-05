@@ -1,14 +1,16 @@
 [user]
     username = luc1ph3r
     email = electrocartridge@gmail.com
-[includeIf "gitdir:~/src/"]
+[includeIf "gitdir/i:~/src/"]
     path = ~/src/.gitconfig
-
 [diff]
-    guitool = opendiff
+    guitool = meld
     tool = vimdiff
 [alias]
-	  co = checkout
-	  br = branch
-	  ci = commit
-	  st = status
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    pull = pull --rebase
+[core]
+    excludesfile = /Users/ivanzhukov/.gitignore.global
