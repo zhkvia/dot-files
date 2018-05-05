@@ -165,7 +165,6 @@ Plugin 'mattn/emmet-vim'
 " --Plugins
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -181,7 +180,8 @@ filetype plugin indent on    " required
 set number
 
 " Indentation
-" filetype plugin indent on
+set autoindent
+filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
