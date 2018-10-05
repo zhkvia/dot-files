@@ -147,3 +147,6 @@ alias today="echo \$(date +'%Y-%m-%d')"
 alias mkdirdate="mkdir \$(today)"
 
 alias svnvimdiff="svn diff --diff-cmd=~/developer/\\*sh/svnvimdiff.sh"
+
+# restore a session
+alias rsvim="vim -S ~/.vim/tmp_session"

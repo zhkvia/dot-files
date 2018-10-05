@@ -268,4 +268,4 @@ end
 " Allow vim to switch between buffers with unsaved changes
 set hidden
 
-command Cls mksession! /home/ivanzhukov/.vim/tmp_session | qa
+command Cls mksession! ~/.vim/tmp_session | qa
