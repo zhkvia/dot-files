@@ -145,3 +145,5 @@ export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 
 alias today="echo \$(date +'%Y-%m-%d')"
 alias mkdirdate="mkdir \$(today)"
+
+alias svnvimdiff="svn diff --diff-cmd=~/developer/\\*sh/svnvimdiff.sh"
