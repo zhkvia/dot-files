@@ -98,6 +98,8 @@ Plugin 'chrisbra/csv.vim'
 " Sidebar displaying a current file's structure
 Plugin 'majutsushi/tagbar'
 nmap <C-t> :TagbarToggle<CR>
+" Use \t to focus on (or open) the tagbar
+nnoremap <leader>t :TagbarOpen fj<cr>
 let g:tagbar_width = 40
 
 " NEDRtree for displaying a folders tree on the left
@@ -227,7 +229,7 @@ set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set backspace=indent,eol,start
-set mouse=a
+" set mouse=a
 
 " Relative numbers --
 set relativenumber
