@@ -127,9 +127,9 @@ endfunction
 " Find files only in a project root folder
 command! ProjectFiles execute 'Files' s:find_git_root()
 
-nmap ; :Buffers<CR>
-nmap ,f :ProjectFiles<CR>
-nmap ,t :Tags<CR>
+nmap <leader>b :Buffers<CR>
+nmap <c-p> :ProjectFiles<CR>
+" nmap ,t :Tags<CR>
 " -- FZF zone
 
 " For distraction-free writing
@@ -164,7 +164,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plugin 'mattn/emmet-vim'
 "" -- JS/HTML
 
-" --Plugins
+" -- Plugins
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -204,7 +204,7 @@ set scrolloff=9999
 
 syntax enable
 " Solarized --
-set background=dark
+set background=light
 colorscheme solarized
 call togglebg#map("<F5>")  " toggle between light and dark themes
 " -- Solarized
