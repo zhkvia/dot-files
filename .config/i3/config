@@ -173,8 +173,13 @@ bindsym $mod+r mode "resize"
 # CapsLock --> Escape
 bindsym --release 0xffe5 exec --no-startup-id xdotool key --clearmodifiers Escape
 
-bindsym Print exec gnome-screenshot -i
-bindsym ctrl+Print exec gnome-screenshot -a -c
+bindsym Print exec --no-startup-id gnome-screenshot -i
+bindsym ctrl+Print exec --no-startup-id gnome-screenshot -a -c
+
+bindsym $mod+minus move scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+bindsym $mod+semicolon exec --no-startup-id i3lock
 
 # Making it macOS like--
 #
@@ -197,7 +202,22 @@ bindsym ctrl+Print exec gnome-screenshot -a -c
 bindsym --release $mod+space exec --no-startup-id "(setxkbmap -query | grep -q 'layout:\s\+us') && setxkbmap ru || setxkbmap us"
 # --Custom binds
 
+# Applications at startup--
+exec --no-startup-id /usr/bin/xcompmgr
 exec --no-startup-id /usr/bin/gxkb
+exec --no-startup-id /usr/bin/dunst
+# --Applications at startup
+
+# Interface--
+
+# i3-gaps--
+# removing titlebars
+for_window [class=".*"] border pixel 2
+gaps inner 15
+gaps outer 15
+# --i3-gaps
+
+# --Interface
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
