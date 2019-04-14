@@ -213,6 +213,8 @@ bindsym --release $mod+space exec --no-startup-id "(setxkbmap -query | grep -q '
 exec --no-startup-id /usr/bin/xcompmgr
 exec --no-startup-id /usr/bin/gxkb
 exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/pasystray
 # --Applications at startup
 
 # Interface--
@@ -233,3 +235,12 @@ bar {
         mode dock
         status_command i3blocks
 }
+
+# Extra XF86 Keys--
+
+# Audio
+bindsym XF86AudioMute        exec --no-startup-id pulsemixer --toggle-mute
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# --Extra XF86 Keys
