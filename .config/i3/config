@@ -70,7 +70,6 @@ bindsym $mod+Shift+Right move right
 
 # # split in horizontal orientation
 # bindsym $mod+h split h
-
 # # split in vertical orientation
 # bindsym $mod+v split v
 
@@ -79,9 +78,9 @@ bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+Shift+s layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+Shift+t split toggle
+bindsym $mod+t split toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+m floating toggle
@@ -90,7 +89,7 @@ bindsym $mod+Shift+m floating toggle
 bindsym $mod+m focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -169,28 +168,34 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Custom binds--
-bindsym $mod+p focus parent
+# bindsym $mod+p focus parent
 
-# Making it macOS like
-# CapsLock --> Escape:
+# CapsLock --> Escape
 bindsym --release 0xffe5 exec --no-startup-id xdotool key --clearmodifiers Escape
 
+bindsym Print exec gnome-screenshot -i
+bindsym ctrl+Print exec gnome-screenshot -a -c
+
+# Making it macOS like--
+#
 # Self-evident:
-bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
-bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
-bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
-bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
+# bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+# bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+# bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
+# bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
+# bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
+# bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
 
-# Mod + Shift + { -> previous tab:
-bindsym --release $mod+Shift+0x5b exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff55
-# Mod + Shift + } -> next tab:
-bindsym --release $mod+Shift+0x5d exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff56
+# Mod + Shift + { -> previous tab
+# bindsym --release $mod+Shift+0x5b exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff55
+# # Mod + Shift + } -> next tab
+# bindsym --release $mod+Shift+0x5d exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff56
+#
+# --Making it macOS like
 
-# Mod + Space --> toggle a keyboard layout:
+# Mod + Space --> toggle a keyboard layout
 bindsym --release $mod+space exec --no-startup-id "(setxkbmap -query | grep -q 'layout:\s\+us') && setxkbmap ru || setxkbmap us"
-# --Custom binds:
+# --Custom binds
 
 exec --no-startup-id /usr/bin/gxkb
 
