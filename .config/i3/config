@@ -170,6 +170,13 @@ bindsym $mod+r mode "resize"
 # Custom binds--
 # bindsym $mod+p focus parent
 
+# Resize in a default mode--
+bindsym $mod+y resize grow width 10 px or 10 ppt
+bindsym $mod+u resize shrink height 10 px or 10 ppt
+bindsym $mod+i resize grow height 10 px or 10 ppt
+bindsym $mod+o resize shrink width 10 px or 10 ppt
+# --Resize in a default mode
+
 # CapsLock --> Escape
 bindsym --release 0xffe5 exec --no-startup-id xdotool key --clearmodifiers Escape
 
