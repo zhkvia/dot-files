@@ -1,3 +1,5 @@
+#macOS only
+
 passOut=`security find-generic-password -ga $1 2>&1 > /dev/null`;
 
 echo $passOut | sed 's/password:\ \"//' | sed 's/\"$//' | tr -d '\n' | pbcopy;
