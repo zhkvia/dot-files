@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock the screen before suspending
+Before=sleep.target
+
+[Service]
+User=ivan
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/ivan/.scripts/i3lock.sh
+
+[Install]
+WantedBy=sleep.target
