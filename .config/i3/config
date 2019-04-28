@@ -35,7 +35,7 @@ floating_modifier $mod
 bindsym $mod+Return exec /usr/bin/terminator
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -74,7 +74,7 @@ bindsym $mod+Shift+Right move right
 # bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -186,7 +186,7 @@ bindsym --release Print exec --no-startup-id scrot '/tmp/%Y-%m-%d_%wx%h.png' -s 
 bindsym $mod+minus move scratchpad
 bindsym $mod+Shift+minus scratchpad show
 
-bindsym $mod+semicolon exec --no-startup-id ~/developer/\*sh/i3lock.sh
+bindsym $mod+semicolon exec --no-startup-id ~/.scripts/i3lock.sh
 
 # Making it macOS like--
 #
