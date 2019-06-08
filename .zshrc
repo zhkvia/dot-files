@@ -56,7 +56,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
 
 # User configuration
 
@@ -98,6 +98,12 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
 
+# Vi-mode--
+bindkey '^[OA' history-beginning-search-backward
+bindkey '^[OB' history-beginning-search-forward
+bindkey '^P'   history-beginning-search-backward
+bindkey '^N'   history-beginning-search-forward
+# --Vi-mode
 
 alias mv="mv -iv"
 alias cp="cp -iv"
