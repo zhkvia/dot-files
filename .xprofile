@@ -1,0 +1,6 @@
+xrandr --output HDMI-2 --right-of eDP-1
+xrandr --output eDP-1 --rotate left
+# Never turn off the screen automatically
+xset -dpms
+# Disable the screen saver
+xset s off
