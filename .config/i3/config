@@ -38,7 +38,9 @@ bindsym $mod+Return exec /usr/bin/terminator
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -combi-modi window#drun -font "Pragmata Pro Mono Regular 14" -show combi
+bindsym $mod+Tab exec rofi -modi window -font "Pragmata Pro Mono Regular 14" -show
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -131,7 +133,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-workspace 9 output primary
+workspace 1 output primary
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -171,16 +173,17 @@ bindsym $mod+r mode "resize"
 # bindsym $mod+p focus parent
 
 # Resize in a default mode--
-bindsym $mod+y resize grow width 10 px or 10 ppt
-bindsym $mod+u resize shrink height 10 px or 10 ppt
-bindsym $mod+i resize grow height 10 px or 10 ppt
-bindsym $mod+o resize shrink width 10 px or 10 ppt
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
 # --Resize in a default mode
 
 # CapsLock --> Escape
 bindsym --release 0xffe5 exec --no-startup-id xdotool key --clearmodifiers Escape
 
-bindsym --release Print exec --no-startup-id scrot '/tmp/%Y-%m-%d_%wx%h.png' -s -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+bindsym --release ctrl+shift+$mod+4 exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+bindsym --release ctrl+$mod+4 exec --no-startup-id gnome-screenshot -a -i
 
 
 bindsym $mod+minus move scratchpad
@@ -188,28 +191,13 @@ bindsym $mod+Shift+minus scratchpad show
 
 bindsym $mod+semicolon exec --no-startup-id ~/.scripts/i3lock.sh
 
-# Making it macOS like--
-#
-# Self-evident:
-# bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-# bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-# bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
-# bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
-# bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
-# bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
-
-# Mod + Shift + { -> previous tab
-# bindsym --release $mod+Shift+0x5b exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff55
-# # Mod + Shift + } -> next tab
-# bindsym --release $mod+Shift+0x5d exec --no-startup-id xdotool key --clearmodifiers ctrl+0xff56
-#
-# --Making it macOS like
-
 # Mod + Space --> toggle a keyboard layout
 bindsym --release $mod+space exec --no-startup-id "(setxkbmap -query | grep -q 'layout:\s\+us') && setxkbmap ru || setxkbmap us"
 # --Custom binds
 
 # Applications at startup--
+exec --no-startup-id gnome-flashback
+exec --no-startup-id /usr/bin/feh --bg-fill '/home/ivan/Pictures/Wallpapers/э.jpeg'
 
 # Tray--
 # Applet showing X keyboard layouts
@@ -224,8 +212,6 @@ exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id /usr/bin/xcompmgr
 # Notification daemon
 exec --no-startup-id /usr/bin/dunst
-# Setting the background
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/do_not_bite2.jpg
 # --Applications at startup
 
 # Interface--
@@ -237,19 +223,12 @@ gaps inner 15
 gaps outer 15
 # --i3-gaps
 
-# --Interface
+# colors--
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #3d3d3d #ffffff #2e9ef4   #285577
+# --colors
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         position top
-#         status_command i3status
-#         # status_command i3blocks
-#         colors {
-#             statusline    $black
-#             # background    $transparent
-#         }
-# }
+# --Interface
 
 # Using polybar instead of i3bar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -260,5 +239,10 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 bindsym XF86AudioMute        exec --no-startup-id pulsemixer --toggle-mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+bindsym XF86AudioPlay        exec playerctl play-pause
+bindsym XF86AudioPause       exec playerctl pause
+bindsym XF86AudioNext        exec playerctl next
+bindsym XF86AudioPrev        exec playerctl previous
 
 # --Extra XF86 Keys
