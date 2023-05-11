@@ -1,2 +1,2 @@
-# dot-n-files
+# dot files
 Dot files and configs
